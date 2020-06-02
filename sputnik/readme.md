@@ -4,6 +4,28 @@ The AutoRest Sputnik generator is intended to be use from AutoRest.
 
 > see https://aka.ms/autorest
 
+# Notes
+
+Install:
+- nodeJS (min 10.x better: 12.x best: 13.x latest ) -- node 13 has a lot of good perf improvements
+- autorest `npm install -g autorest`
+- rushjs `npm install -g @microsoft/rush'
+
+```bash
+git clone https://github.com/fearthecowboy/autorest.sputnik -b simple
+rush update
+rush rebuild
+autorest https://github.com/Azure/azure-rest-api-specs/tree/master/specification/redis/resource-manager/readme.md --use:.
+autorest https://github.com/Azure/azure-rest-api-specs/tree/master/specification/redis/resource-manager/readme.md --use:. --sputnik.debugger
+```
+
+or for a single swagger file:
+```bash
+autorest --input-file:foo.json --use:<path-to-the-dev-folder>  
+autorest --input-file:foo.json --use:c:/work/myExtension
+autorest --input-file:..  --use:@autorest/azure-functions-python 
+```
+
 
 # Contributing
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
